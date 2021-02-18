@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <AllProperties></AllProperties>
+      <AllProperties activeUser={"2"}></AllProperties>
     
       
     </>

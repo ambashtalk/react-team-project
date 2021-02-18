@@ -6,20 +6,23 @@ type CardProps = {
     nameOfProperty:string,
     locationOfProperty:string,
     costOfProperty:string,
+    activeUser:string,
+    idUser:string,
     removePropertyHandler:(id:string) => void
   }
 
 const PropertyDetails=styled.div`
 display:flex;
 flex-direction:column;
-font-size:27px
+font-size:2rem;
+justify-content:center;
 `
 const CardHolder=styled.div`
 display:flex;
 flex-direction:row;
 border: 1px solid black;
-width:100px;
-height:100px;
+width:20rem;
+height:20rem;
 justify-content: space-between;
 `
 
@@ -36,22 +39,22 @@ const PropertyCard=(props:CardProps)=>{
                 <div>
                     
 
-                    {props.nameOfProperty}
+                    Name:{props.nameOfProperty}
                 </div>
                 <div>
                     
-                    {props.locationOfProperty}
+                    Location:{props.locationOfProperty}
                 </div>
                 <div>
                 
-                    {props.costOfProperty}
+                    Cost:{props.costOfProperty}
                 </div>
             
 
 
             </PropertyDetails>
             <div>
-                <DeletePropertyButton removePropertyHandler={props.removePropertyHandler}/>
+                {props.activeUser==props.idUser?<DeletePropertyButton removePropertyHandler={props.removePropertyHandler}/>:null}
             </div>
         </CardHolder>    
     )
