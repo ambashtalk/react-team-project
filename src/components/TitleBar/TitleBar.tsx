@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import defaultUserImage from "../../assets/defaultuser.svg";
+import defaultUserImage from "../../assets/images/maleProfileImage.jpeg";
 import { UserDropDownButton } from "./TitleBarComponents";
 import {
   StyledNavbar,
