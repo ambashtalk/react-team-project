@@ -1,0 +1,85 @@
+{
+  "users":[
+    {
+      "userId" : "1",
+      "firstName" : "Saurabh Kumar",
+      "lastName" : "Jha",
+      "email" : "jhasaurabh.312@gmail.com",
+      "mobile" : "7477347438",
+      "gender" : "M",
+      "dateOfBirth" : "1998-12-13",
+      "password" : "Saurabh@123",
+      "propertyAdded" : [
+        {
+          "propertyId" : "p1"
+        },
+        {
+          "propertyId" : "p2"
+        }
+      ]
+    },
+    {
+      "userId" : "1",
+      "firstName" : "EnigmaX",
+      "lastName" : "Mamba",
+      "email" : "fbcedsbf.35@gmail.com",
+      "mobile" : "7477347438",
+      "gender" : "M",
+      "dateOfBirth" : "1998-12-13",
+      "password" : "dshgvcs@123",
+      "propertyAdded" : [
+        {
+          "propertyId" : "p3"
+        },
+        {
+          "propertyId" : "p4"
+        }
+      ]
+    }
+  ],
+
+
+
+  "properties": [
+    {
+      "propertyId" : "p1",
+      "nameOfProperty" : "Hotel Meera MOtel",
+      "locationOfProperty" : "Delhi",
+      "costOfProperty" : "14,000",
+      "typeOfProperty" : "Hotel",
+      "descriptionOfProperty" : "Nice Resdenttial Place",
+      "ownerOfProperty" : "1",    
+      "registrationDateOfProperty" : "2021-01-05"
+    },
+    {
+      "propertyId" : "p2",
+      "nameOfProperty" : "Hotel Meera MOtel",
+      "locationOfProperty" : "Mumbai",
+      "costOfProperty" : "15,000",
+      "typeOfProperty" : "Hotel",
+      "descriptionOfProperty" : "Nice Resdenttial Place",
+      "ownerOfProperty" : "1",    
+      "registrationDateOfProperty" : "2021-01-05"
+    },
+    {
+      "propertyId" : "p3",
+      "nameOfProperty" : "Hotel Meera MOtel",
+      "locationOfProperty" : "kolkata",
+      "costOfProperty" : "12,000",
+      "typeOfProperty" : "Hotel",
+      "descriptionOfProperty" : "Nice Resdenttial Place",
+      "ownerOfProperty" : "1",    
+      "registrationDateOfProperty" : "2021-01-05"
+    },
+    {
+      "propertyId" : "p4",
+      "nameOfProperty" : "Hotel Meera MOtel",
+      "locationOfProperty" : "Bangalore",
+      "costOfProperty" : "16,000",
+      "typeOfProperty" : "Hotel",
+      "descriptionOfProperty" : "Nice Resdenttial Place",
+      "ownerOfProperty" : "1",    
+      "registrationDateOfProperty" : "2021-01-05"
+    }
+  ]
+}
