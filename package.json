@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev-server": "json-server -p 8080 'src/db/db.json'"
+    "dev-server": "json-server -p 8080 assets/db/db.json"
   },
   "eslintConfig": {
     "extends": [
