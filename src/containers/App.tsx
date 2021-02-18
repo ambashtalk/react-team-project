@@ -1,6 +1,8 @@
 import React from 'react';
 import {createGlobalStyle} from 'styled-components';
 
+import AllProperties from './AllProperties'
+
 const GlobalStyle = createGlobalStyle`
 html {
   font-size: 62.5%;
@@ -13,11 +15,15 @@ html {
 }
 `;
 
+
+
 function App() {
   return (
     <>
       <GlobalStyle />
-      {/* UNCOMMENT AND ADD COMPONENTS HERE */}
+      <AllProperties></AllProperties>
+    
+      
     </>
   );
 }
