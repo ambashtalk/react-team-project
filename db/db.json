@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Saurabh Kumar",
+      "lastName": "Jha",
+      "email": "jhasaurabh.312@gmail.com",
+      "mobile": "7477347438",
+      "gender": "M",
+      "dateOfBirth": "1998-12-13",
+      "password": "Saurabh@123",
+      "propertyAdded": [
+        {
+          "id": "p1"
+        },
+        {
+          "id": "p2"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "firstName": "EnigmaX",
+      "lastName": "Mamba",
+      "email": "fbcedsbf.35@gmail.com",
+      "mobile": "7477347438",
+      "gender": "M",
+      "dateOfBirth": "1998-12-13",
+      "password": "dshgvcs@123",
+      "propertyAdded": [
+        {
+          "propertyId": "p3"
+        },
+        {
+          "propertyId": "p4"
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "user_id": "3",
+      "id": "p3",
+      "nameOfProperty": "Hotel Meera MOtel",
+      "locationOfProperty": "kolkata",
+      "costOfProperty": "12,000",
+      "typeOfProperty": "Hotel",
+      "descriptionOfProperty": "Nice Resdenttial Place",
+      "ownerOfProperty": "1",
+      "registrationDateOfProperty": "2021-01-05"
+    },
+    {
+      "user_id": "4",
+      "id": "p4",
+      "nameOfProperty": "Hotel Meera MOtel",
+      "locationOfProperty": "Bangalore",
+      "costOfProperty": "16,000",
+      "typeOfProperty": "Hotel",
+      "descriptionOfProperty": "Nice Resdenttial Place",
+      "ownerOfProperty": "1",
+      "registrationDateOfProperty": "2021-01-05"
+    }
+  ]
+}

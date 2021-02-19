@@ -1,32 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
-import PropertyCard from '../components/PropertyCard'
+import PropertyCard from '../components/PropertyCard';
+import axios from 'axios';
+import { type } from 'os';
+import {HomePageParentDiv} from '../components/ContentWrapper/AllPropertiesStyle'
+
 
 type AllPropertiesPropsType={
     activeUser:string
 }
-let dummyProperties=[{id:"1",nameOfProperty:"simi",locationOfProperty:"america",costOfProperty:"1000"},
-                        {id:"2",nameOfProperty:"sim2",locationOfProperty:"india",costOfProperty:"20000"},
-                        {id:"3",nameOfProperty:"sim3",locationOfProperty:"england",costOfProperty:"3000"}
-                        ]
+
+
+type PropertiesArgumentType={registrationDateOfProperty:string,user_id:string,typeOfProperty:string, descriptionOfProperty:string
+    ownerOfProperty:string,  id:string, nameOfProperty: string, locationOfProperty: string, costOfProperty: string }
+
+
+let AllPropertiesArray: PropertiesArgumentType[] =[];                        
 
 
 
-const AllProperties=(props:AllPropertiesPropsType)=>{
+const  AllProperties=(props:AllPropertiesPropsType)=>{
     let [DeletePropertyState,setDeletePropertyState]=useState(true);
+    
+    useEffect(()=>{
+     const getData= async ()=>{   
+     const result= await axios.get("http://localhost:8080/properties").then(response => {AllPropertiesArray=response.data});
+  
+    if(DeletePropertyState===true){
+    setDeletePropertyState(false);
+    } 
+    else{
+    setDeletePropertyState(true);
+    }
 
-    //console.log("should not run again");
+     }
+     getData();
+
+    },[])
+    
     
     
         
     
 
     function removePropertyHandler(id:string){
-        console.log(id);
-        //make a call for delete from file
-        dummyProperties= dummyProperties.filter(function(user) { 
-            return user.id !== id; 
+        
+        AllPropertiesArray= AllPropertiesArray.filter(function(property: PropertiesArgumentType) { 
+            return property.id !== id; 
         })
+        let action="http://localhost:8080/properties";
+        action=action+"/"+ id;
+        //console.log(action);
+        axios.delete(action);
         if(DeletePropertyState===true){
             setDeletePropertyState(false);
         }
@@ -41,17 +66,17 @@ const AllProperties=(props:AllPropertiesPropsType)=>{
     
     
     return (
+    
+        <HomePageParentDiv>
         
-        <div>
-       
-        {dummyProperties.map(function(user,i){
-            return (<PropertyCard idUser={user.id} activeUser={props.activeUser} key={user.id} nameOfProperty={user.nameOfProperty} locationOfProperty={user.locationOfProperty} costOfProperty={user.costOfProperty} removePropertyHandler={()=>{removePropertyHandler(user.id)}}/>)
+        {AllPropertiesArray.map(function(property: PropertiesArgumentType){
+            return (<PropertyCard typeOfProperty={property.typeOfProperty} descriptionOfProperty={property.descriptionOfProperty} ownerOfProperty={property.ownerOfProperty} registrationDateOfProperty={property.registrationDateOfProperty} id={property.id} idUser={property.user_id} activeUser={props.activeUser} key={property.id} nameOfProperty={property.nameOfProperty} locationOfProperty={property.locationOfProperty} costOfProperty={property.costOfProperty} removePropertyHandler={()=>{removePropertyHandler(property.id)}}/>)
 
         })
         
 
         }
-        </div>
+        </HomePageParentDiv>
 
 
 

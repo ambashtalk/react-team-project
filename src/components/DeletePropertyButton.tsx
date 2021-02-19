@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {DeleteButton} from '../components/ContentWrapper/DeletePropertyButtonStyles' 
 
 
 type ButtonProps={
@@ -9,7 +10,7 @@ type ButtonProps={
 
 const DeletePropertyButton=(props:ButtonProps)=>{
     return (
-        <button onClick={()=>{props.removePropertyHandler("dummy argument")}}>X</button>
+        <DeleteButton onClick={()=>{props.removePropertyHandler("dummy argument")}}>X</DeleteButton>
     )
 }
 
