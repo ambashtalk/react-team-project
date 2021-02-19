@@ -29,7 +29,7 @@ function App() {
       
       <TitleBar />
       <ContentWrapper>
-      <AllProperties activeUser={"1"}></AllProperties>
+      <AllProperties activeUser={"2"}></AllProperties>
       </ContentWrapper>
     </>
   );

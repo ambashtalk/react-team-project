@@ -39,25 +39,33 @@
   ],
   "properties": [
     {
-      "user_id": "3",
-      "id": "p3",
+      "id": "p1",
       "nameOfProperty": "Hotel Meera MOtel",
-      "locationOfProperty": "kolkata",
-      "costOfProperty": "12,000",
+      "locationOfProperty": "Delhi",
+      "costOfProperty": "14,000",
       "typeOfProperty": "Hotel",
       "descriptionOfProperty": "Nice Resdenttial Place",
       "ownerOfProperty": "1",
       "registrationDateOfProperty": "2021-01-05"
     },
     {
-      "user_id": "4",
+      "id": "p2",
+      "nameOfProperty": "Hotel Meera MOtel",
+      "locationOfProperty": "Mumbai",
+      "costOfProperty": "15,000",
+      "typeOfProperty": "Hotel",
+      "descriptionOfProperty": "Nice Resdenttial Place",
+      "ownerOfProperty": "4",
+      "registrationDateOfProperty": "2021-01-05"
+    },
+    {
       "id": "p4",
       "nameOfProperty": "Hotel Meera MOtel",
       "locationOfProperty": "Bangalore",
       "costOfProperty": "16,000",
       "typeOfProperty": "Hotel",
       "descriptionOfProperty": "Nice Resdenttial Place",
-      "ownerOfProperty": "1",
+      "ownerOfProperty": "3",
       "registrationDateOfProperty": "2021-01-05"
     }
   ]

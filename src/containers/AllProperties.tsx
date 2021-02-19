@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
-import PropertyCard from '../components/PropertyCard';
+import PropertyCard from './PropertyCard';
 import axios from 'axios';
 import { type } from 'os';
 import {HomePageParentDiv} from '../components/ContentWrapper/AllPropertiesStyle'
@@ -11,7 +11,7 @@ type AllPropertiesPropsType={
 }
 
 
-type PropertiesArgumentType={registrationDateOfProperty:string,user_id:string,typeOfProperty:string, descriptionOfProperty:string
+type PropertiesArgumentType={registrationDateOfProperty:string,typeOfProperty:string, descriptionOfProperty:string
     ownerOfProperty:string,  id:string, nameOfProperty: string, locationOfProperty: string, costOfProperty: string }
 
 
@@ -70,7 +70,7 @@ const  AllProperties=(props:AllPropertiesPropsType)=>{
         <HomePageParentDiv>
         
         {AllPropertiesArray.map(function(property: PropertiesArgumentType){
-            return (<PropertyCard typeOfProperty={property.typeOfProperty} descriptionOfProperty={property.descriptionOfProperty} ownerOfProperty={property.ownerOfProperty} registrationDateOfProperty={property.registrationDateOfProperty} id={property.id} idUser={property.user_id} activeUser={props.activeUser} key={property.id} nameOfProperty={property.nameOfProperty} locationOfProperty={property.locationOfProperty} costOfProperty={property.costOfProperty} removePropertyHandler={()=>{removePropertyHandler(property.id)}}/>)
+            return (<PropertyCard typeOfProperty={property.typeOfProperty} descriptionOfProperty={property.descriptionOfProperty} ownerOfProperty={property.ownerOfProperty} registrationDateOfProperty={property.registrationDateOfProperty} id={property.id}  activeUser={props.activeUser} key={property.id} nameOfProperty={property.nameOfProperty} locationOfProperty={property.locationOfProperty} costOfProperty={property.costOfProperty} removePropertyHandler={()=>{removePropertyHandler(property.id)}}/>)
 
         })
         

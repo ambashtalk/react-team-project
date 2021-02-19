@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import DeletePropertyButton from './DeletePropertyButton'
-import {PropertyDetails,CardHolder,UniquePropertyDetails} from './ContentWrapper/PropertyCardStyles'
+import DeletePropertyButton from '../components/DeletePropertyButton'
+import {PropertyDetails,CardHolder,UniquePropertyDetails} from '../components/ContentWrapper/PropertyCardStyles'
 
 
 
@@ -11,7 +11,7 @@ type CardProps = {
     locationOfProperty:string,
     costOfProperty:string,
     activeUser:string,
-    idUser:string,
+    
     typeOfProperty:string,
     descriptionOfProperty:string,
     ownerOfProperty:string,
@@ -66,7 +66,7 @@ function givefullviewofproperty(){
     
                 </PropertyDetails>
                 <div>
-                    {props.activeUser==props.idUser?<DeletePropertyButton removePropertyHandler={props.removePropertyHandler}/>:null}
+                    {props.activeUser==props.ownerOfProperty?<DeletePropertyButton removePropertyHandler={props.removePropertyHandler}/>:null}
                 </div>
             </CardHolder>
           
