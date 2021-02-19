@@ -25,6 +25,10 @@ export const StyledNavHeading = styled.h1`
 export const StyledUserDropDown = styled.div`
   display: block;
   margin: auto 0;
+
+  @media (max-width: 440px) {
+    display: flex;
+  }
 `;
 
 export const StyledUserImage = styled.img`
@@ -33,19 +37,33 @@ export const StyledUserImage = styled.img`
   height: 5rem;
   width: auto;
   align-self: center;
+
+  @media (min-width: 370px) and  (max-width: 440px) {
+    display: none;
+  }
 `;
 
 export const StyledUserName = styled.a`
   color: white;
   font-size: 1.5rem;
   padding: 0 1rem;
-  flex: 1;
+  /* flex: 1; */
   text-align: center;
   margin: auto 0;
   padding: auto;
+
+  @media (max-width: 370px) {
+    display: none;
+  }
 `;
 
-export const StyledUserOption = styled(StyledUserName)`
+export const StyledUserOption = styled.a`
+  color: white;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  flex: 1;
+  text-align: center;
+  margin: auto 0;
   padding: 1rem;
 `;
 
@@ -67,6 +85,26 @@ export const StyledUserBox = styled.div`
   }
 `;
 
+type StyledOptionContainer_proptype = {
+  showMenu: boolean;
+};
+export const StyledOptionsContainer = styled.div`
+  display: ${(props: StyledOptionContainer_proptype) =>
+    props.showMenu ? "flex" : "none"};
+  flex: 3;
+
+  @media (min-width: 441px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 440px) {
+    display: flex;
+    & > * {
+      flex: 1;
+    }
+  }
+`;
+
 export const StyledOptionBox = styled(StyledUserBox)`
   background-color: black;
   color: white;
@@ -77,7 +115,7 @@ export const StyledOptionBox = styled(StyledUserBox)`
   }
 
   &:hover > * {
-    color:black;
+    color: black;
   }
 `;
 
