@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
-import PropertyCard from './PropertyCard';
+import PropertyCard from './AllPropertiesComponent/PropertyCard/PropertyCard';
 import axios from 'axios';
 import { type } from 'os';
-import {HomePageParentDiv} from '../components/ContentWrapper/AllPropertiesStyle'
+import {HomePageParentDiv} from './AllPropertiesStyle'
 
 
 type AllPropertiesPropsType={

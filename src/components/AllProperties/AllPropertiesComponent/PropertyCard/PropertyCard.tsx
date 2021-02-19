@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import DeletePropertyButton from '../components/DeletePropertyButton'
-import {PropertyDetails,CardHolder,UniquePropertyDetails} from '../components/ContentWrapper/PropertyCardStyles'
+import DeletePropertyButton from '../DeletePropertyButton/DeletePropertyButton'
+import {PropertyDetails,CardHolder,UniquePropertyDetails} from './PropertyCardStyles'
 
 
 
