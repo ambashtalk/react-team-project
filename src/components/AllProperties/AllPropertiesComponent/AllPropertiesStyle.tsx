@@ -5,6 +5,12 @@ export const HomePageParentDiv=styled.div`
 width:100vw;
 height:100vh;
 display:flex;
-justify-content:center;
+flex-direction:row;
 flex-wrap:wrap;
+align-items:center;
+justify-content:center;
+
+
+
+
 `

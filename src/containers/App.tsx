@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import ContentWrapper from "../components/ContentWrapper/ContentWrapper";
 import TitleBar from "../components/TitleBar/TitleBar";
 
-import AllProperties from './AllProperties'
+import AllProperties from '../components/AllProperties/AllPropertiesComponent/AllProperties'
 
 const GlobalStyle = createGlobalStyle`
 html {

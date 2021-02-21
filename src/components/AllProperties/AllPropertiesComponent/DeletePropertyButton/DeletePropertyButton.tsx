@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {DeleteButton} from '../components/ContentWrapper/DeletePropertyButtonStyles' 
+import {DeleteButton} from './DeletePropertyButtonStyles' 
 
 
 type ButtonProps={
