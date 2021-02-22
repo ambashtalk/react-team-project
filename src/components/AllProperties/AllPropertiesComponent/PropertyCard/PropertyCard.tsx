@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import DeletePropertyButton from '../DeletePropertyButton/DeletePropertyButton'
-import {PropertyDetails,CardHolder,UniquePropertyDetails} from './PropertyCardStyles'
+import {PropertyDetails,CardHolder,UniquePropertyDetails,PropertyImageStyes,ImageWithDetailsStyles,CardContainer} from './PropertyCardStyles'
+import axios, { AxiosResponse } from 'axios'
 
 
 
@@ -20,62 +21,77 @@ type CardProps = {
   }
 
 
+  
+
 
 const PropertyCard=(props:CardProps)=>{
 
-let [fullPropertyDetailsToggler,setfullPropertyDetailsToggler]=useState(false);    
-function givefullviewofproperty(){
-    if(fullPropertyDetailsToggler==false){
-        setfullPropertyDetailsToggler(true);}
-    else{
-        setfullPropertyDetailsToggler(false);
 
+    let [fullPropertyDetailsToggler,setfullPropertyDetailsToggler]=useState(false);
+       
+    function givefullviewofproperty(){
+        if(fullPropertyDetailsToggler==false){
+            setfullPropertyDetailsToggler(true);}
+        else{
+            setfullPropertyDetailsToggler(false);
+
+
+        }
+    }
+
+    let imagesource="https://picsum.photos/450/450?random=" + props.id;
+
+
+
+
+        return (
+            <CardContainer onClick={givefullviewofproperty} >
+                
+                
+                <CardHolder>
+                    <ImageWithDetailsStyles>
+                    
+                
+                   
+                        <PropertyDetails>
+                            <PropertyImageStyes src={imagesource}></PropertyImageStyes>
+                            <UniquePropertyDetails>
+                            
+            
+                                Name:{props.nameOfProperty}
+                            </UniquePropertyDetails>
+                            <UniquePropertyDetails >
+                            
+                                Location:{props.locationOfProperty}
+                            </UniquePropertyDetails>
+                            <UniquePropertyDetails >
+                        
+                                Cost:{props.costOfProperty}
+                            </UniquePropertyDetails>
+
+                            {fullPropertyDetailsToggler? <UniquePropertyDetails >Property Type:{props.typeOfProperty}</UniquePropertyDetails>:null}
+                            {fullPropertyDetailsToggler? <UniquePropertyDetails >Description:{props.descriptionOfProperty}</UniquePropertyDetails>:null}
+                            {fullPropertyDetailsToggler? <UniquePropertyDetails >Owner:{props.ownerOfProperty}</UniquePropertyDetails>:null}
+                            {fullPropertyDetailsToggler? <UniquePropertyDetails >Registration Date:{props.registrationDateOfProperty}</UniquePropertyDetails>:null}
+                            
+
+                
+        
+        
+                         </PropertyDetails>
+                        <div>
+                            {props.activeUser==props.ownerOfProperty?<DeletePropertyButton removePropertyHandler={props.removePropertyHandler}/>:null}
+                        </div>
+                    </ImageWithDetailsStyles>
+                </CardHolder>
+            
+            </CardContainer>
+
+        )
+            
 
     }
-}
-
-
-
-    return (
-        <div onClick={givefullviewofproperty} style={{margin:"1%", maxHeight:"400px", maxWidth:"400px"}}>
-            <CardHolder>
-            
-                <PropertyDetails>
-                    <UniquePropertyDetails>
-                    
-    
-                        Name:{props.nameOfProperty}
-                    </UniquePropertyDetails>
-                    <UniquePropertyDetails >
-                    
-                        Location:{props.locationOfProperty}
-                    </UniquePropertyDetails>
-                    <UniquePropertyDetails >
-                
-                        Cost:{props.costOfProperty}
-                    </UniquePropertyDetails>
-
-                    {fullPropertyDetailsToggler? <UniquePropertyDetails >Property Type:{props.typeOfProperty}</UniquePropertyDetails>:null}
-                    {fullPropertyDetailsToggler? <UniquePropertyDetails >Description:{props.descriptionOfProperty}</UniquePropertyDetails>:null}
-                    {fullPropertyDetailsToggler? <UniquePropertyDetails >Owner:{props.ownerOfProperty}</UniquePropertyDetails>:null}
-                    {fullPropertyDetailsToggler? <UniquePropertyDetails >Registration Date:{props.registrationDateOfProperty}</UniquePropertyDetails>:null}
-                    
-
-            
-    
-    
-                </PropertyDetails>
-                <div>
-                    {props.activeUser==props.ownerOfProperty?<DeletePropertyButton removePropertyHandler={props.removePropertyHandler}/>:null}
-                </div>
-            </CardHolder>
-          
-        </div>
-
-    )
-        
-
-}
 
 
 export default PropertyCard;
+
