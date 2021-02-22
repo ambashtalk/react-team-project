@@ -6,34 +6,62 @@ display:flex;
 flex-direction:column;
 font-size:2rem;
 justify-content:center;
-padding:4%;
+padding:3%;
+width:100%;
+margin:0;
+
 
 
 `
 export const CardHolder=styled.div`
 display:flex;
-flex-direction:row;
+flex-direction:column;
 border: 1px hidden black;
-width:30%;
-height:30%;
+
+
 justify-content: space-between;
-max-width:400px;
-max-height:400px;
-min-width:300px;
-min-height:300px;
-margin-top:0px;
+
+
+
 margin:1%;
-border-radius:3%;
-padding:2%;
+border-radius:1%;
+
+
 background-color:#F0F0F0;
 box-shadow: 5px 10px #DCDCDC;
 
 `
 export const UniquePropertyDetails=styled.div`
 width:90%;
-height:90%;
+
 
 overflow-wrap:break-word;
 min-width:250px;
 margin:2%;
+`
+export const PropertyImageStyes=styled.img`
+width:"90%"
+
+`
+
+export const ImageWithDetailsStyles=styled.div`
+display:flex;
+flex-direction:row;
+
+
+
+padding:6%;
+
+`
+
+export const CardContainer=styled.div`
+margin:1%;
+
+width:30%;
+
+min-width:300px;
+@media (max-width: 624px) {
+    width:80%;
+  }
+
 `
