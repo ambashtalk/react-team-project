@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import DeletePropertyButton from '../DeletePropertyButton/DeletePropertyButton'
-import {PropertyDetails,CardHolder,UniquePropertyDetails,PropertyImageStyes,ImageWithDetailsStyles,CardContainer} from './PropertyCardStyles'
+import {PropertyDetails,CardHolder,UniquePropertyDetails,PropertyImageStyes,ImageWithDetailsStyles,CardContainer,DetailsHandlerInRow} from './PropertyCardStyles'
 import axios, { AxiosResponse } from 'axios'
 
 
@@ -57,22 +57,50 @@ const PropertyCard=(props:CardProps)=>{
                             <PropertyImageStyes src={imagesource}></PropertyImageStyes>
                             <UniquePropertyDetails>
                             
-            
-                                Name:{props.nameOfProperty}
+                                <DetailsHandlerInRow>
+                                    <div>Name:</div>
+                                    <div>
+                                        {props.nameOfProperty}
+                                     
+
+                                    </div>
+                                
+                                </DetailsHandlerInRow>
                             </UniquePropertyDetails>
                             <UniquePropertyDetails >
+                                <DetailsHandlerInRow>
+                                    <div>
+                                        Location:
+
+                                    </div>
+                                    <div>
+                                        {props.locationOfProperty}
+
+                                    </div>
+                                </DetailsHandlerInRow>    
                             
-                                Location:{props.locationOfProperty}
+                                
                             </UniquePropertyDetails>
                             <UniquePropertyDetails >
+                                <DetailsHandlerInRow>
+
+                                    <div>
+                                        Cost:
+
+                                    </div>
+                                    <div>
+                                        {props.costOfProperty}
+
+                                    </div>
+                                </DetailsHandlerInRow>    
                         
-                                Cost:{props.costOfProperty}
+                                
                             </UniquePropertyDetails>
 
-                            {fullPropertyDetailsToggler? <UniquePropertyDetails >Property Type:{props.typeOfProperty}</UniquePropertyDetails>:null}
-                            {fullPropertyDetailsToggler? <UniquePropertyDetails >Description:{props.descriptionOfProperty}</UniquePropertyDetails>:null}
-                            {fullPropertyDetailsToggler? <UniquePropertyDetails >Owner:{props.ownerOfProperty}</UniquePropertyDetails>:null}
-                            {fullPropertyDetailsToggler? <UniquePropertyDetails >Registration Date:{props.registrationDateOfProperty}</UniquePropertyDetails>:null}
+                            {fullPropertyDetailsToggler? <UniquePropertyDetails ><DetailsHandlerInRow><div>Property Type:</div><div>{props.typeOfProperty}</div></DetailsHandlerInRow></UniquePropertyDetails>:null}
+                            {fullPropertyDetailsToggler? <UniquePropertyDetails ><DetailsHandlerInRow><div>Description:</div><div>{props.descriptionOfProperty}</div></DetailsHandlerInRow></UniquePropertyDetails>:null}
+                            {fullPropertyDetailsToggler? <UniquePropertyDetails ><DetailsHandlerInRow><div>Owner:</div><div>{props.ownerOfProperty}</div></DetailsHandlerInRow></UniquePropertyDetails>:null}
+                            {fullPropertyDetailsToggler? <UniquePropertyDetails ><DetailsHandlerInRow><div>Registration Date:</div><div>{props.registrationDateOfProperty}</div></DetailsHandlerInRow></UniquePropertyDetails>:null}
                             
 
                 

@@ -65,3 +65,8 @@ min-width:300px;
   }
 
 `
+
+export const DetailsHandlerInRow=styled.div`
+display:flex;
+
+`
