@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
-import PropertyCard from './AllPropertiesComponent/PropertyCard/PropertyCard';
+import PropertyCard from './PropertyCard/PropertyCard';
 import axios from 'axios';
 import { type } from 'os';
 import {HomePageParentDiv} from './AllPropertiesStyle'
