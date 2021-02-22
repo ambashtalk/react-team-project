@@ -3,6 +3,8 @@ import { createGlobalStyle } from "styled-components";
 import ContentWrapper from "../components/ContentWrapper/ContentWrapper";
 import TitleBar from "../components/TitleBar/TitleBar";
 
+import AllProperties from "../components/AllProperties/AllProperties";
+
 const GlobalStyle = createGlobalStyle`
 html {
   font-size: 62.5%;
@@ -22,8 +24,7 @@ function App() {
       <GlobalStyle />
       <TitleBar />
       <ContentWrapper>
-        ADD ALL YOU COMPONETS INSDIE THIS TAG. ANY COMPONENT OUTSIDE THIS DIV
-        MAY GET HIDDEN DUE TO FIXED TITLE-BAR
+        <AllProperties activeUser={"2"}></AllProperties>
       </ContentWrapper>
     </>
   );
