@@ -38,7 +38,7 @@ export const StyledUserImage = styled.img`
   width: auto;
   align-self: center;
 
-  @media (min-width: 370px) and  (max-width: 440px) {
+  @media (min-width: 371px) and  (max-width: 440px) {
     display: none;
   }
 `;
