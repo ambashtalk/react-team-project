@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import DeletePropertyButton from '../DeletePropertyButton/DeletePropertyButton'
 import {PropertyDetails,CardHolder,UniquePropertyDetails,PropertyImageStyes,ImageWithDetailsStyles,CardContainer} from './PropertyCardStyles'
 import axios, { AxiosResponse } from 'axios'
+import { FloatButtonArea } from '../../../saurabhForm/FormComponents'
 
 
 
@@ -84,9 +85,9 @@ const PropertyCard=(props:CardProps)=>{
                         </div>
                     </ImageWithDetailsStyles>
                 </CardHolder>
-            
+                <FloatButtonArea />
             </CardContainer>
-
+            
         )
             
 
