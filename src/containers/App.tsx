@@ -20,8 +20,8 @@ html {
 }
 `;
 
+
 function App() {
-  const history = useHistory();
   //Check if user is currently online
   let [userIsLoggedIn, setUserIsLoggedIn] = useState(
     window.localStorage.getItem("userIsLoggedIn")
@@ -42,7 +42,10 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <TitleBar userIsLoggedIn={userIsLoggedIn} sessionManager={toogleUserIsLoggedIn} />
+      <TitleBar
+        userIsLoggedIn={userIsLoggedIn}
+        sessionManager={toogleUserIsLoggedIn}
+      />
       <ContentWrapper>
         <Switch>
           <Route exact path="/">
@@ -50,10 +53,14 @@ function App() {
             <FloatButtonArea />
           </Route>
           <Route exact path="/auth">
-            <SignUpForm toogleUserIsLoggedIn={toogleUserIsLoggedIn}></SignUpForm>
+            <SignUpForm
+              toogleUserIsLoggedIn={toogleUserIsLoggedIn}
+            ></SignUpForm>
           </Route>
           {/* <Route exact path="/logout"></Route> */}
-          <Route exact path="/profile"></Route>
+          <Route exact path="/profile">
+            <FloatButtonArea />
+          </Route>
         </Switch>
       </ContentWrapper>
     </>

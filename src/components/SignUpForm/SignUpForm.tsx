@@ -16,6 +16,7 @@ export type formData_type = {
   [key: string] : any
 }
 export const SignUpForm: FunctionComponent<signUpForm_proptype> = (props) => {
+  const history = useHistory();
   const [formData, setFormData] = useState({});
   const setFormField = (event: any) => {
     event.preventDefault();
@@ -33,6 +34,7 @@ export const SignUpForm: FunctionComponent<signUpForm_proptype> = (props) => {
 
     //Redirect to Login
     props.toogleUserIsLoggedIn();
+    history.push("/");
   }
   
   return (
