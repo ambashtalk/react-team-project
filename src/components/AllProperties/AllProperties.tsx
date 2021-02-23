@@ -70,7 +70,7 @@ const  AllProperties=(props:AllPropertiesPropsType)=>{
         <HomePageParentDiv>
         
         {AllPropertiesArray.map(function(property: PropertiesArgumentType){
-            return (<PropertyCard typeOfProperty={property.typeOfProperty} descriptionOfProperty={property.descriptionOfProperty} ownerOfProperty={property.ownerOfProperty} registrationDateOfProperty={property.registrationDateOfProperty} id={property.id}  activeUser={props.activeUser} key={property.id} nameOfProperty={property.nameOfProperty} locationOfProperty={property.locationOfProperty} costOfProperty={property.costOfProperty} removePropertyHandler={()=>{removePropertyHandler(property.id)}}/>)
+            return (<PropertyCard propertyArray={AllPropertiesArray} typeOfProperty={property.typeOfProperty} descriptionOfProperty={property.descriptionOfProperty} ownerOfProperty={property.ownerOfProperty} registrationDateOfProperty={property.registrationDateOfProperty} id={property.id}  activeUser={props.activeUser} key={property.id} nameOfProperty={property.nameOfProperty} locationOfProperty={property.locationOfProperty} costOfProperty={property.costOfProperty} removePropertyHandler={()=>{removePropertyHandler(property.id)}}/>)
 
         })
         

@@ -17,6 +17,8 @@ type CardProps = {
     descriptionOfProperty:string,
     ownerOfProperty:string,
     registrationDateOfProperty:string,
+    propertyArray:{registrationDateOfProperty:string,typeOfProperty:string, descriptionOfProperty:string
+        ownerOfProperty:string,  id:string, nameOfProperty: string, locationOfProperty: string, costOfProperty: string }[],
     removePropertyHandler:(id:string) => void
   }
 
@@ -38,6 +40,7 @@ const PropertyCard=(props:CardProps)=>{
 
         }
     }
+    console.log(props.propertyArray);
 
     let imagesource="https://picsum.photos/450/450?random=" + props.id;
 
