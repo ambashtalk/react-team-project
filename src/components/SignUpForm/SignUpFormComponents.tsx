@@ -1,13 +1,12 @@
-import React, { FunctionComponent } from "react";
-import { Signup } from "./SignUpForm";
+import React, { FormEvent, FunctionComponent } from "react";
+import { SignUpForm } from "./SignUpForm";
 import { ConfirmationModal, Modal } from "../PopUpModal/PopUpModalComponents";
 import { useModal } from "../PopUpModal/PopUpModal";
-
 import {
   ButtonField,
-  DivField,
-  FormField,
-  InputField,
+  StyledFormInputRow,
+  StyledSignUpFormContainer,
+  StyledFormInputField,
   Label,
   FloatButton,
 } from "./SignUpFormStyle";
@@ -16,59 +15,52 @@ export const FloatButtonArea: FunctionComponent<{}> = () => {
   const { isShown, toggle } = useModal();
 
   return (
-    <React.Fragment>
+    <>
       <FloatButton onClick={toggle} title="Add Property"></FloatButton>
       <Modal
         isShown={isShown}
         hide={toggle}
         headerText="Edit Profile"
-        modalContent={<ConfirmationModal message={<Signup />} />}
+        modalContent={<ConfirmationModal message={<h1>Property Form</h1>} />}
       />
-    </React.Fragment>
+    </>
   );
 };
 
-export interface ButtonProps {
+type FormButton_proptype = {
   className: string;
-  message: string;
-  //clickMe : () => void ;
-}
-
-export const ButtonArea: FunctionComponent<ButtonProps> = ({
-  className,
-  message,
-}) => {
+};
+export const FormButton: FunctionComponent<FormButton_proptype> = (props) => {
   return (
-    <DivArea className={className}>
-      <ButtonField>{message}</ButtonField>
-    </DivArea>
+    <FormInputRow className={props.className}>
+      <ButtonField >{props.children}</ButtonField>
+    </FormInputRow>
   );
 };
 
-export interface DivProps {
+type FormInputRow_proptype = {
   className: string;
-}
-
-export const DivArea: FunctionComponent<DivProps> = (props) => {
-  return <DivField className={props.className}>{props.children}</DivField>;
+};
+export const FormInputRow: FunctionComponent<FormInputRow_proptype> = (props) => {
+  return <StyledFormInputRow className={props.className}>{props.children}</StyledFormInputRow>;
 };
 
-export interface FormProps {}
-
-export const FormArea: FunctionComponent<FormProps> = (props) => {
-  return <FormField>{props.children}</FormField>;
+type SignUpFormContainer_proptype = {
+  onSubmit: (event: FormEvent) => void;
+};
+export const SignUpFormContainer: FunctionComponent<SignUpFormContainer_proptype> = (props) => {
+  return <StyledSignUpFormContainer onSubmit={props.onSubmit}>{props.children}</StyledSignUpFormContainer>;
 };
 
-export interface InputProps {
+type FormInputField_proptype = {
   className: string;
   // error: string;
   label: string;
   type: string;
   name: string;
   placeholder: string;
-}
-
-export const InputArea: FunctionComponent<InputProps> = ({
+};
+export const FormInputField: FunctionComponent<FormInputField_proptype> = ({
   className,
   label,
   type,
@@ -76,14 +68,14 @@ export const InputArea: FunctionComponent<InputProps> = ({
   placeholder,
 }) => {
   return (
-    <DivArea className={className}>
+    <FormInputRow className={className}>
       <Label>{label}</Label>
-      <InputField
+      <StyledFormInputField
         type={type}
         placeholder={placeholder}
         name={name}
-      ></InputField>
+      ></StyledFormInputField>
       {/* <Span>{error}</Span> */}
-    </DivArea>
+    </FormInputRow>
   );
 };

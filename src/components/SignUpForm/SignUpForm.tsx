@@ -1,88 +1,119 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState, MouseEvent, FormEvent } from "react";
+import { Redirect, useHistory } from "react-router-dom";
 import {
-  ButtonArea,
-  DivArea,
-  FormArea,
-  InputArea,
+  FormButton,
+  FormInputRow,
+  SignUpFormContainer,
+  FormInputField,
 } from "./SignUpFormComponents";
 
-export const Signup: FunctionComponent = () => {
-  return (
-    <React.Fragment>
-      <FormArea>
-        <InputArea
-          className="TypeA"
-          type="text"
-          placeholder="Company Name"
-          label="Company Name"
-          name="cName"
-        ></InputArea>
 
-        <DivArea className="TypeB">
-          <InputArea
+type signUpForm_proptype = {
+  toogleUserIsLoggedIn: ()=>void;
+}
+
+export type formData_type = {
+  [key: string] : any
+}
+export const SignUpForm: FunctionComponent<signUpForm_proptype> = (props) => {
+  const [formData, setFormData] = useState({});
+  const setFormField = (event: any) => {
+    event.preventDefault();
+    
+    let newState = {};
+    for(let i=0; i<event.target.length-1; i++) {
+      newState = {
+        ...newState,
+        [event.target[i].name]: event.target[i].value
+      } 
+    }    
+    setFormData(newState);
+    
+    //Send data for validation and commit to database
+
+    //Redirect to Login
+    props.toogleUserIsLoggedIn();
+  }
+  
+  return (
+    <>
+      <SignUpFormContainer onSubmit={setFormField}>
+        <FormInputRow className="TypeB">
+          <FormInputField
             className="TypeC"
             type="text"
             placeholder="Title"
             label="Title"
             name="title"
-          ></InputArea>
-          <InputArea
+          ></FormInputField>
+          <FormInputField
             className="TypeD"
             type="text"
             placeholder="First Name"
             label="First Name"
-            name="fName"
-          ></InputArea>
-          <InputArea
+            name="firstName"
+          ></FormInputField>
+          <FormInputField
             className="TypeD"
             type="text"
             placeholder="Last Name"
             label="Last Name"
-            name="lName"
-          ></InputArea>
-        </DivArea>
+            name="lastName"
+          ></FormInputField>
+        </FormInputRow>
 
-        <InputArea
+        <FormInputField
+          className="TypeA"
+          type="text"
+          placeholder="Username"
+          label="Username"
+          name="userName"
+        ></FormInputField>
+
+        <FormInputField
           className="TypeA"
           type="text"
           placeholder="Email Address"
           label="Email"
           name="email"
-        ></InputArea>
+        ></FormInputField>
 
-        <DivArea className="TypeB">
-          <InputArea
+        <FormInputRow className="TypeB">
+          <FormInputField
             className="TypeC"
             type="date"
             placeholder="Pin Code"
             label="Pin Code"
             name="pCode"
-          ></InputArea>
-          <InputArea
+          ></FormInputField>
+
+          <FormInputField
             className="TypeD"
             type="text"
             placeholder="Mobile Number"
             label="Mobile"
             name="mobile"
-          ></InputArea>
-        </DivArea>
+          ></FormInputField>
+        </FormInputRow>
 
-        <InputArea
+        <FormInputField
           className="TypeA"
           type="text"
           placeholder="Password"
           label="Password"
           name="pass"
-        ></InputArea>
-        <InputArea
+        ></FormInputField>
+
+        <FormInputField
           className="TypeA"
           type="text"
           placeholder="Confirm Password"
           label="Confirm Password"
           name="cPass"
-        ></InputArea>
-      </FormArea>
-      <ButtonArea className="TypeE" message="Submit"></ButtonArea>
-    </React.Fragment>
+        ></FormInputField>
+
+        <FormButton className="TypeE" >SignUp</FormButton>
+      </SignUpFormContainer>
+    </>
   );
 };

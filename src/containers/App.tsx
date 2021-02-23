@@ -4,8 +4,8 @@ import ContentWrapper from "../components/ContentWrapper/ContentWrapper";
 import TitleBar from "../components/TitleBar/TitleBar";
 import AllProperties from "../components/AllProperties/AllProperties";
 import { FloatButtonArea } from "../components/SignUpForm/SignUpFormComponents";
-import { Route, Switch } from "react-router-dom";
-import { Signup } from "../components/SignUpForm/SignUpForm";
+import { Route, Switch, useHistory } from "react-router-dom";
+import { SignUpForm } from "../components/SignUpForm/SignUpForm";
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -21,6 +21,7 @@ html {
 `;
 
 function App() {
+  const history = useHistory();
   //Check if user is currently online
   let [userIsLoggedIn, setUserIsLoggedIn] = useState(
     window.localStorage.getItem("userIsLoggedIn")
@@ -49,7 +50,7 @@ function App() {
             <FloatButtonArea />
           </Route>
           <Route exact path="/auth">
-            <Signup></Signup>
+            <SignUpForm toogleUserIsLoggedIn={toogleUserIsLoggedIn}></SignUpForm>
           </Route>
           {/* <Route exact path="/logout"></Route> */}
           <Route exact path="/profile"></Route>
