@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import defaultUserImage from "../../assets/images/maleProfileImage.jpeg";
-import { UserDropDownButton } from "./TitleBarComponents";
+import { UserBox } from "./TitleBarComponents";
 import {
   StyledNavbar,
   StyledNavHeading,
   StyledUserDropDown,
-  StyledUserDropDownItem,
-  StyledUserDropDownItems,
-  StyledUserDropDownLogoutItem,
-  StyledUserDropDownMenu,
-  StyledUserProfileBox,
-  StyledUserProfileImage,
-  StyledUserProfileName,
+  StyledUserImage,
+  StyledOptionBox,
+  StyledUserOption,
+  StyledLogoutOption,
+  StyledLogoutOptionBox,
+  StyledUserName,
+  StyledOptionsContainer,
 } from "./TitleBarStyles";
 type proptype = {
   userIsLoggedIn?: boolean;
@@ -28,26 +28,24 @@ const TitleBar: React.FC<proptype> = (props) => {
     <StyledNavbar>
       <StyledNavHeading>HOTEL BOOKING</StyledNavHeading>
       <StyledUserDropDown>
-        <StyledUserProfileBox>
-          <StyledUserProfileImage src={defaultUserImage} alt="UserImage" />
-          <StyledUserProfileName>
+        <UserBox clicked={toogleUserDropDownMenu}>
+          <StyledUserImage src={defaultUserImage} alt="user_image" />
+          <StyledUserName>
             Welcome! {props.userIsLoggedIn ? props.username : "Guest"}
-          </StyledUserProfileName>
-        </StyledUserProfileBox>
+          </StyledUserName>
+        </UserBox>
 
-        <StyledUserDropDownMenu>
-          <UserDropDownButton clicked={toogleUserDropDownMenu}>
-            Settings
-          </UserDropDownButton>
-
-          <StyledUserDropDownItems
-            isClickedDropDownButton={isClickedDropDownButton}
-          >
-            <StyledUserDropDownItem>Profile</StyledUserDropDownItem>
-            <StyledUserDropDownItem>Properties</StyledUserDropDownItem>
-            <StyledUserDropDownLogoutItem>Logout</StyledUserDropDownLogoutItem>
-          </StyledUserDropDownItems>
-        </StyledUserDropDownMenu>
+        <StyledOptionsContainer showMenu={isClickedDropDownButton}>
+          <StyledOptionBox>
+            <StyledUserOption>Profile</StyledUserOption>
+          </StyledOptionBox>
+          <StyledOptionBox>
+            <StyledUserOption>Properties</StyledUserOption>
+          </StyledOptionBox>
+          <StyledLogoutOptionBox>
+            <StyledLogoutOption>Logout</StyledLogoutOption>
+          </StyledLogoutOptionBox>
+        </StyledOptionsContainer>
       </StyledUserDropDown>
     </StyledNavbar>
   );

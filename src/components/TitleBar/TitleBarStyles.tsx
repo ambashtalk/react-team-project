@@ -5,12 +5,12 @@ export const StyledNavbar = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 5rem;
+  height: 6rem;
   background-image: linear-gradient(to right, #ed213a, #93291e);
   padding: 0 1rem;
   justify-content: space-between;
 
-  @media (max-width: 572px) {
+  @media (max-width: 440px) {
     background-image: linear-gradient(to bottom, #ed213a, #93291e);
     flex-direction: column;
     height: auto;
@@ -23,88 +23,107 @@ export const StyledNavHeading = styled.h1`
 `;
 
 export const StyledUserDropDown = styled.div`
-  display: flex;
-  justify-content: center;
-  @media (max-width: 572px) {
-    flex-direction: column;
+  display: block;
+  margin: auto 0;
+
+  @media (max-width: 440px) {
+    display: flex;
   }
 `;
 
-export const StyledUserProfileBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-`;
-
-export const StyledUserProfileImage = styled.img`
+export const StyledUserImage = styled.img`
   border: none;
   border-radius: 50%;
   height: 5rem;
   width: auto;
-  margin: 0 0.5rem;
   align-self: center;
+
+  @media (min-width: 370px) and  (max-width: 440px) {
+    display: none;
+  }
 `;
 
-export const StyledUserProfileName = styled.p`
-  font-size: 2rem;
+export const StyledUserName = styled.a`
   color: white;
-  align-self: center;
-`;
-
-export const StyledUserDropDownMenu = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin: 0 1rem;
-  flex: 1;
-`;
-
-export const StyledUserDropDownButton = styled.button`
-  background-color: #e42a41;
-  outline: 0;
-  border: none;
-  color: white;
-  flex: 1;
   font-size: 1.5rem;
-  min-height: 5rem;
-  padding: 1rem 2rem;
+  padding: 0 1rem;
+  /* flex: 1; */
+  text-align: center;
+  margin: auto 0;
+  padding: auto;
+
+  @media (max-width: 370px) {
+    display: none;
+  }
+`;
+
+export const StyledUserOption = styled.a`
+  color: white;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  flex: 1;
+  text-align: center;
+  margin: auto 0;
+  padding: 1rem;
+`;
+
+export const StyledLogoutOption = styled(StyledUserOption)`
+  &:hover {
+    color: white;
+  }
+`;
+
+export const StyledUserBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 6rem;
+  &:hover {
+    cursor: pointer;
+    background-color: #e42a41;
+  }
+`;
+
+type StyledOptionContainer_proptype = {
+  showMenu: boolean;
+};
+export const StyledOptionsContainer = styled.div`
+  display: ${(props: StyledOptionContainer_proptype) =>
+    props.showMenu ? "flex" : "none"};
+  flex: 3;
+
+  @media (min-width: 441px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 440px) {
+    display: flex;
+    & > * {
+      flex: 1;
+    }
+  }
+`;
+
+export const StyledOptionBox = styled(StyledUserBox)`
+  background-color: black;
+  color: white;
+
   &:hover {
     background-color: whitesmoke;
     color: black;
   }
-`;
 
-type styledUserDropDownItems_proptype = {
-  isClickedDropDownButton: boolean;
-};
-export const StyledUserDropDownItems = styled.div`
-  display: ${(props: styledUserDropDownItems_proptype) =>
-    props.isClickedDropDownButton ? "flex" : "none"};
-  flex-direction: column;
-  @media (max-width: 572px) {
-    flex-direction: row;
-  }
-`;
-
-export const StyledUserDropDownItem = styled.a`
-  color: white;
-  background-color: black;
-  flex: 1;
-  font-size: 1.5rem;
-  text-align: center;
-  padding: 1rem;
-  cursor: pointer;
-  &:hover {
+  &:hover > * {
     color: black;
-    background-color: white;
   }
 `;
 
-export const StyledUserDropDownLogoutItem = styled(StyledUserDropDownItem)`
+export const StyledLogoutOptionBox = styled(StyledUserBox)`
   background-color: orange;
+  color: white;
+
   &:hover {
-    background-color: red;
-    color: white;
+    background-color: #e42a41;
   }
 `;
