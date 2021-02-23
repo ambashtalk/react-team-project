@@ -8,7 +8,6 @@ import {
   ImageWithDetailsStyles,
   CardContainer,
 } from "./PropertyCardStyles";
-import { FloatButtonArea } from "../../../SignUpForm/SignUpFormComponents";
 
 type CardProps = {
   id: string;
@@ -85,7 +84,6 @@ const PropertyCard = (props: CardProps) => {
           </div>
         </ImageWithDetailsStyles>
       </CardHolder>
-      <FloatButtonArea />
     </CardContainer>
   );
 };
