@@ -4,6 +4,7 @@ import ContentWrapper from "../components/ContentWrapper/ContentWrapper";
 import TitleBar from "../components/TitleBar/TitleBar";
 
 import AllProperties from "../components/AllProperties/AllProperties";
+import { FloatButtonArea } from "../components/SignUpForm/SignUpFormComponents";
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -25,6 +26,7 @@ function App() {
       <TitleBar />
       <ContentWrapper>
         <AllProperties activeUser={"2"}></AllProperties>
+        <FloatButtonArea />
       </ContentWrapper>
     </>
   );
