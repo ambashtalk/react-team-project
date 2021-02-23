@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import defaultUserImage from "../../assets/images/maleProfileImage.jpeg";
 import { UserBox } from "./TitleBarComponents";
+import { HandelLoginLogout } from "./TitleBarEventHandelers";
 import {
   StyledNavbar,
   StyledNavHeading,
   StyledUserDropDown,
   StyledUserImage,
   StyledOptionBox,
-  StyledUserOption,
+  StyledUserOptionAndLink,
   StyledLogoutOption,
   StyledLogoutOptionBox,
   StyledUserName,
   StyledOptionsContainer,
 } from "./TitleBarStyles";
 type proptype = {
-  userIsLoggedIn?: boolean;
+  userIsLoggedIn: string | null;
   username?: string;
+  sessionManager: () => void;
 };
 
 const TitleBar: React.FC<proptype> = (props) => {
@@ -31,19 +33,29 @@ const TitleBar: React.FC<proptype> = (props) => {
         <UserBox clicked={toogleUserDropDownMenu}>
           <StyledUserImage src={defaultUserImage} alt="user_image" />
           <StyledUserName>
-            Welcome! {props.userIsLoggedIn ? props.username : "Guest"}
+            Welcome!{" "}
+            {props.userIsLoggedIn === "true" ? props.username : "Guest"}
           </StyledUserName>
         </UserBox>
 
         <StyledOptionsContainer showMenu={isClickedDropDownButton}>
           <StyledOptionBox>
-            <StyledUserOption>Profile</StyledUserOption>
+            <StyledUserOptionAndLink to="/profile">
+              Profile
+            </StyledUserOptionAndLink>
           </StyledOptionBox>
           <StyledOptionBox>
-            <StyledUserOption>Properties</StyledUserOption>
+            <StyledUserOptionAndLink to="/">Home</StyledUserOptionAndLink>
           </StyledOptionBox>
-          <StyledLogoutOptionBox>
-            <StyledLogoutOption>Logout</StyledLogoutOption>
+          <StyledLogoutOptionBox userIsLoggedIn={props.userIsLoggedIn}>
+            <StyledLogoutOption
+              onClick={() =>
+                HandelLoginLogout(props.userIsLoggedIn, props.sessionManager)
+              }
+              to={props.userIsLoggedIn === "true" ? "/" : "/auth"}
+            >
+              {props.userIsLoggedIn === "true" ? "Logout" : "Login"}
+            </StyledLogoutOption>
           </StyledLogoutOptionBox>
         </StyledOptionsContainer>
       </StyledUserDropDown>
