@@ -6,6 +6,8 @@ import AllProperties from "../components/AllProperties/AllProperties";
 import { FloatButtonArea } from "../components/SignUpForm/SignUpFormComponents";
 import { Route, Switch, useHistory } from "react-router-dom";
 import { SignUpForm } from "../components/SignUpForm/SignUpForm";
+import Profile from "../components/Profile/Profile";
+
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -59,6 +61,7 @@ function App() {
           </Route>
           {/* <Route exact path="/logout"></Route> */}
           <Route exact path="/profile">
+            <Profile activeuser="2"></Profile>
             <FloatButtonArea />
           </Route>
         </Switch>
