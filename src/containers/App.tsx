@@ -8,6 +8,7 @@ import AllProperties from "../components/AllProperties/AllProperties";
 import { Tab } from "../components/UserProfile/userProfileComponents";
 import { TabArea } from "../components/UserProfile/userProfile";
 import { FloatButtonArea } from "../components/SignUpForm/SignUpFormComponents";
+import { EditProfile, LoginForm } from "../components/SignUpForm/SignUpForm";
 const GlobalStyle = createGlobalStyle`
 html {
   font-size: 62.5%;
@@ -27,9 +28,10 @@ function App() {
       <GlobalStyle />
       <TitleBar />
       <ContentWrapper>
-
-        <AllProperties activeUser={"2"}></AllProperties>
-        <FloatButtonArea />
+          <EditProfile></EditProfile>
+          {/* <LoginForm></LoginForm> */}
+        {/* <AllProperties activeUser={"2"}></AllProperties> */}
+        {/* <FloatButtonArea /> */}
       </ContentWrapper>
     </>
   );
