@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Signup } from "./SignUpForm";
+import { AddProperty, Signup } from "./SignUpForm";
 import { ConfirmationModal, Modal } from "../PopUpModal/PopUpModalComponents";
 import { useModal } from "../PopUpModal/PopUpModal";
 
@@ -21,8 +21,8 @@ export const FloatButtonArea: FunctionComponent<{}> = () => {
       <Modal
         isShown={isShown}
         hide={toggle}
-        headerText="Edit Profile"
-        modalContent={<ConfirmationModal message={<Signup />} />}
+        headerText="Add Property"
+        modalContent={<ConfirmationModal message={<AddProperty />} />}
       />
     </React.Fragment>
   );

@@ -38,3 +38,4 @@ export const TabTitleButton = styled.button`
         border:1px solid red;
     }
 `;
+

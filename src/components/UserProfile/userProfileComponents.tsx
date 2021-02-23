@@ -1,5 +1,5 @@
 import React, {ReactElement, useCallback, useState} from 'react'
-import { TabTitleArea, TabTitleButton } from './profile.style'
+import { TabTitleArea, TabTitleButton } from './Tabs.style'
 
 type Props = {
   title: string,

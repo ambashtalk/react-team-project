@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   @media (min-width: 768px) {
     width: 60%;
   }
-  @media (min-width: 1024px) {
-    width: 40%;
+  @media (max-width: 768px) {
+    width: 70%;
   }
   position: fixed;
   top: 50%;

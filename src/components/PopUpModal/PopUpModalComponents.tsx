@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect } from "react";
-import { ConfirmationButtons, Message } from "./PopUpModalStyles";
+import { ConfirmationButtons, Message, NoButton, YesButton } from "./PopUpModalStyles";
 import FocusLock from "react-focus-lock";
 import ReactDOM from "react-dom";
 
@@ -24,16 +24,14 @@ export interface ModalProps {
   headerText: string;
 }
 
-export const ConfirmationModal: FunctionComponent<ConfirmationModalProps> = (
-  props
-) => {
+export const ConfirmationModal: FunctionComponent<ConfirmationModalProps> = (props) => {
   return (
     <React.Fragment>
       <Message>{props.message}</Message>
-      <ConfirmationButtons>
-        {/* <YesButton onClick={props.onConfirm}>Yes</YesButton>
-                <NoButton onClick={props.onCancel}>No</NoButton> */}
-      </ConfirmationButtons>
+      {/* <ConfirmationButtons>
+        <YesButton onClick={props.onConfirm}>Yes</YesButton>
+                <NoButton onClick={props.onCancel}>No</NoButton>
+      </ConfirmationButtons> */}
     </React.Fragment>
   );
 };
@@ -65,12 +63,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
     <React.Fragment>
       <Backdrop onClick={hide} />
       <FocusLock>
-        <Wrapper
-          aria-modal
-          aria-labelledby={headerText}
-          tabIndex={-1}
-          role="dialog"
-        >
+        <Wrapper aria-modal aria-labelledby={headerText}tabIndex={-1}role="dialog">
           <StyledModal>
             <Header>
               <HeaderText>{headerText}</HeaderText>

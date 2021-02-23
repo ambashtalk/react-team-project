@@ -28,11 +28,8 @@ function App() {
       <GlobalStyle />
       <TitleBar />
       <ContentWrapper>
-        <AddProperty></AddProperty>
-          {/* <EditProfile></EditProfile> */}
-          {/* <LoginForm></LoginForm> */}
-        {/* <AllProperties activeUser={"2"}></AllProperties> */}
-        {/* <FloatButtonArea /> */}
+        <TabArea activeUser={"2"}></TabArea>
+        
       </ContentWrapper>
     </>
   );
