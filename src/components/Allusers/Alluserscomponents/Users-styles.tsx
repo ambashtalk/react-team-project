@@ -10,7 +10,7 @@ width:100%;
 margin:0;
 `
 
-export const Userdetails=styled.div`
+export const Userdetails = styled.div`
 width:90%;
 overflow-wrap:break-word;
 min-width:250px;

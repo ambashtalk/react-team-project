@@ -20,21 +20,37 @@ type Userprops = {
 const activeUser=(props:Userprops)=>{
     return(
         <Users>
-                <Userdetails>User ID:{props.userid}</Userdetails>
-                <br/>
-                <Userdetails>Name:{props.firstname}+{props.lastname}</Userdetails>
-                <br/>
-                <Userdetails>email:{props.email}</Userdetails>
-                <br/>
-                <Userdetails>mobile:{props.mobile}</Userdetails>
-                <br/>
-                <Userdetails>Gender:{props.gender}</Userdetails>
-                <br/>
-                <Userdetails>Date of birth:{props.date_of_birth}</Userdetails>
-                <br/>
-                <Userdetails>Password:{props.password}</Userdetails>
-                <br/>
-                <Userdetails>Property Added:{props.propertyadded}</Userdetails>
+            <Userdetails>
+                User ID:{props.userid}
+            </Userdetails>
+            <br/>
+            <Userdetails>
+                Name:{props.firstname}+{props.lastname}
+            </Userdetails>
+            <br/>
+            <Userdetails>
+                email:{props.email}
+            </Userdetails>
+            <br/>
+            <Userdetails>
+                mobile:{props.mobile}
+            </Userdetails>
+            <br/>
+            <Userdetails>
+                Gender:{props.gender}
+            </Userdetails>
+            <br/>
+            <Userdetails>
+                Date of birth:{props.date_of_birth}
+            </Userdetails>
+            <br/>
+            <Userdetails>
+                Password:{props.password}
+            </Userdetails>
+            <br/>
+            <Userdetails>
+                Property Added:{props.propertyadded}
+            </Userdetails>
         </Users>
     )
 }

@@ -4,6 +4,7 @@ import ContentWrapper from "../components/ContentWrapper/ContentWrapper";
 import TitleBar from "../components/TitleBar/TitleBar";
 
 import AllProperties from "../components/AllProperties/AllProperties";
+import Allusers from '../components/Allusers/Allusers'
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -24,7 +25,7 @@ function App() {
       <GlobalStyle />
       <TitleBar />
       <ContentWrapper>
-        <AllProperties activeUser={"2"}></AllProperties>
+        <Allusers activeUser={"2"}></Allusers>
       </ContentWrapper>
     </>
   );
