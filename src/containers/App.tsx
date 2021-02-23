@@ -4,6 +4,8 @@ import ContentWrapper from "../components/ContentWrapper/ContentWrapper";
 import TitleBar from "../components/TitleBar/TitleBar";
 
 import AllProperties from "../components/AllProperties/AllProperties";
+import { Tab } from "../components/UserProfile/userProfileComponents";
+import { TabArea } from "../components/UserProfile/userProfile";
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -24,7 +26,7 @@ function App() {
       <GlobalStyle />
       <TitleBar />
       <ContentWrapper>
-        <AllProperties activeUser={"2"}></AllProperties>
+        <TabArea activeUser="2"></TabArea>
       </ContentWrapper>
     </>
   );

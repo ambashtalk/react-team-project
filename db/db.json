@@ -39,7 +39,7 @@
   ],
   "properties": [
     {
-      "id": "p4",
+      "id": "p1",
       "nameOfProperty": "Hotel Meera MOtel",
       "locationOfProperty": "Bangalore",
       "costOfProperty": "16,000",
@@ -49,7 +49,7 @@
       "registrationDateOfProperty": "2021-01-05"
     },
     {
-      "id": "p5",
+      "id": "p2",
       "nameOfProperty": "Hotel haha MOtel",
       "locationOfProperty": "ludhiana",
       "costOfProperty": "14,000",
@@ -59,7 +59,7 @@
       "registrationDateOfProperty": "2021-01-05"
     },
     {
-      "id": "p6",
+      "id": "p3",
       "nameOfProperty": "Hotel dophin MOtel",
       "locationOfProperty": "ludhiana",
       "costOfProperty": "14,000",
@@ -69,7 +69,7 @@
       "registrationDateOfProperty": "2021-01-05"
     },
     {
-      "id": "p7",
+      "id": "p4",
       "nameOfProperty": "Hotel ontario MOtel",
       "locationOfProperty": "ludhiana",
       "costOfProperty": "14,000",

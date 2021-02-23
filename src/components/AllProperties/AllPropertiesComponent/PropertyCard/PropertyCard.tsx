@@ -16,7 +16,6 @@ type CardProps = {
   locationOfProperty: string;
   costOfProperty: string;
   activeUser: string;
-
   typeOfProperty: string;
   descriptionOfProperty: string;
   ownerOfProperty: string;
