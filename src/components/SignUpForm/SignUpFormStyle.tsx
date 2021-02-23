@@ -44,14 +44,16 @@ export const ButtonField = styled.button`
   }
 `;
 
-export const FormField = styled.form`
-  margin: 15px;
+export const StyledSignUpFormContainer = styled.form`
+  margin: auto;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  max-width: 60%;
 `;
 
-export const DivField = styled.div`
+export const StyledFormInputRow = styled.div`
   ${(props) =>
     props.className === "Main"
       ? "{margin: 0 10%; display: flex; flex-direction: column;justify-content: center;}"
@@ -78,7 +80,7 @@ export const DivField = styled.div`
       : ""};
 `;
 
-export const InputField = styled.input`
+export const StyledFormInputField = styled.input`
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -91,10 +93,8 @@ export const InputField = styled.input`
 
   &:hover,
   &:focus {
-    border: 1.5px solid #88bee6;
+    border: 1.5px solid #128fee;
     outline: none;
-    transition: all 0.4s;
-    transform: scaleX(1.1) scaleY(1.3);
   }
 `;
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledNavbar = styled.nav`
@@ -38,7 +39,7 @@ export const StyledUserImage = styled.img`
   width: auto;
   align-self: center;
 
-  @media (min-width: 370px) and  (max-width: 440px) {
+  @media (min-width: 371px) and (max-width: 440px) {
     display: none;
   }
 `;
@@ -57,7 +58,7 @@ export const StyledUserName = styled.a`
   }
 `;
 
-export const StyledUserOption = styled.a`
+export const StyledUserOptionAndLink = styled(Link)`
   color: white;
   font-size: 1.5rem;
   padding: 0 1rem;
@@ -65,9 +66,10 @@ export const StyledUserOption = styled.a`
   text-align: center;
   margin: auto 0;
   padding: 1rem;
+  text-decoration: none;
 `;
 
-export const StyledLogoutOption = styled(StyledUserOption)`
+export const StyledLogoutOption = styled(StyledUserOptionAndLink)`
   &:hover {
     color: white;
   }
@@ -119,11 +121,16 @@ export const StyledOptionBox = styled(StyledUserBox)`
   }
 `;
 
+type StyledLogoutOptionBox_proptype = {
+  userIsLoggedIn: string | null;
+};
 export const StyledLogoutOptionBox = styled(StyledUserBox)`
-  background-color: orange;
+  background-color: ${(props: StyledLogoutOptionBox_proptype) =>
+    props.userIsLoggedIn ? "orange" : "green"};
   color: white;
 
   &:hover {
-    background-color: #e42a41;
+    background-color: ${(props: StyledLogoutOptionBox_proptype) =>
+      props.userIsLoggedIn==="true" ? "#e42a41" : "#7DA739"};
   }
 `;
