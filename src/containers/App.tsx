@@ -4,9 +4,10 @@ import ContentWrapper from "../components/ContentWrapper/ContentWrapper";
 import TitleBar from "../components/TitleBar/TitleBar";
 
 import AllProperties from "../components/AllProperties/AllProperties";
+
 import { Tab } from "../components/UserProfile/userProfileComponents";
 import { TabArea } from "../components/UserProfile/userProfile";
-
+import { FloatButtonArea } from "../components/SignUpForm/SignUpFormComponents";
 const GlobalStyle = createGlobalStyle`
 html {
   font-size: 62.5%;
@@ -26,7 +27,9 @@ function App() {
       <GlobalStyle />
       <TitleBar />
       <ContentWrapper>
-        <TabArea activeUser="2"></TabArea>
+
+        <AllProperties activeUser={"2"}></AllProperties>
+        <FloatButtonArea />
       </ContentWrapper>
     </>
   );
