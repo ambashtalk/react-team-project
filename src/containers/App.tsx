@@ -39,6 +39,7 @@ function App() {
       if (prevState === "true") {
         localStorage.setItem("userIsLoggedIn", "false");
         localStorage.clear();
+        // history.push("/login");
         return "false";
       } else {
         localStorage.setItem("userIsLoggedIn", "true");
