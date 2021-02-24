@@ -52,7 +52,7 @@ const TitleBar: React.FC<proptype> = (props) => {
               onClick={() =>
                 HandelLoginLogout(props.userIsLoggedIn, props.sessionManager)
               }
-              to={props.userIsLoggedIn === "true" ? "/login" : "/login"}
+              to={props.userIsLoggedIn === "true" ? "/" : "/"}
             >
               {props.userIsLoggedIn === "true" ? "Logout" : "Login"}
             </StyledLogoutOption>

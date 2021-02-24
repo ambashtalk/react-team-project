@@ -4,11 +4,16 @@ import ContentWrapper from "../components/ContentWrapper/ContentWrapper";
 import TitleBar from "../components/TitleBar/TitleBar";
 import AllProperties from "../components/AllProperties/AllProperties";
 import { FloatButtonArea } from "../components/SignUpForm/SignUpFormComponents";
-import { Route, Switch, useHistory } from "react-router-dom";
-import { AddProperty, EditProfile, LoginForm, SignUpForm } from "../components/SignUpForm/SignUpForm";
+import { Redirect, Route, Switch, useHistory } from "react-router-dom";
+import {
+  AddProperty,
+  EditProfile,
+  LoginForm,
+  SignUpForm,
+} from "../components/SignUpForm/SignUpForm";
 import { TabArea } from "../components/Profile/userProfile";
 import { ProfilePage } from "../components/Profile/profileCard";
-import {UserProperty} from "../components/Profile/PropertyCard";
+import { UserProperty } from "../components/Profile/PropertyCard";
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -23,8 +28,8 @@ html {
 }
 `;
 
-
 function App() {
+  const history = useHistory();
   //Check if user is currently online
   let [userIsLoggedIn, setUserIsLoggedIn] = useState(
     localStorage.getItem("userIsLoggedIn")
@@ -34,6 +39,7 @@ function App() {
       if (prevState === "true") {
         localStorage.setItem("userIsLoggedIn", "false");
         localStorage.clear();
+        // history.push("/login");
         return "false";
       } else {
         localStorage.setItem("userIsLoggedIn", "true");
@@ -41,36 +47,75 @@ function App() {
       }
     });
   };
-  console.log(userIsLoggedIn);
+  console.log("userIsLoggedIn: " + userIsLoggedIn);
+
+  let [activeUser, setActiveUser] = useState(
+    localStorage.getItem("activeUser")
+  );
+  const makeActive = (id: string | null) => {
+    setActiveUser((prevState) => {
+      localStorage.setItem("activeUser", id ? id : "");
+      return id;
+    });
+  };
 
   return (
     <>
       <GlobalStyle />
-      <TitleBar userIsLoggedIn={userIsLoggedIn ? userIsLoggedIn : ""} sessionManager={toogleUserIsLoggedIn}/>
+      <TitleBar
+        userIsLoggedIn={userIsLoggedIn ? userIsLoggedIn : ""}
+        sessionManager={toogleUserIsLoggedIn}
+      />
       <ContentWrapper>
         <Switch>
           <Route exact path="/">
-            <SignUpForm toogleUserIsLoggedIn={toogleUserIsLoggedIn}></SignUpForm>
+            <SignUpForm
+              toogleUserIsLoggedIn={toogleUserIsLoggedIn}
+              makeActive={makeActive}
+              activeUser={activeUser}
+            ></SignUpForm>
           </Route>
           <Route exact path="/home">
-              <AllProperties activeUser={localStorage.getItem('activeUser')}></AllProperties>
-              <FloatButtonArea HeaderText="Add Property" comp={<AddProperty activeUser={localStorage.getItem('activeUser')}/>}/>
+            {/* <AllProperties activeUser={localStorage.getItem('activeUser')}></AllProperties> */}
+            <AllProperties activeUser={activeUser}></AllProperties>
+            <FloatButtonArea
+              HeaderText="Add Property"
+              comp={
+                <AddProperty activeUser={localStorage.getItem("activeUser")} />
+              }
+            />
           </Route>
           {/* <Route exact path="/logout"></Route> */}
 
-          <Route exact path="/profile">       
-          <ProfilePage activeUser={localStorage.getItem('activeUser')} HeaderText="Edit Profile" comp={<EditProfile></EditProfile>}></ProfilePage>
+          <Route exact path="/profile">
+            {/* <ProfilePage activeUser={localStorage.getItem('activeUser')} HeaderText="Edit Profile" comp={<EditProfile></EditProfile>}></ProfilePage> */}
+            {
+              userIsLoggedIn ?
+              <ProfilePage
+                activeUser={activeUser}
+                HeaderText="Edit Profile"
+                comp={<EditProfile activeUser={activeUser}></EditProfile>}
+              ></ProfilePage> : <Redirect to="/login" />
+            }
             {/* <FloatButtonArea /> */}
           </Route>
 
           <Route exact path="/login">
-            <LoginForm toogleUserIsLoggedIn={toogleUserIsLoggedIn}></LoginForm>
+            {userIsLoggedIn ? (
+              <Redirect to="/profile" />
+            ) : (
+              <LoginForm
+                toogleUserIsLoggedIn={toogleUserIsLoggedIn}
+                makeActive={makeActive}
+                activeUser={activeUser}
+              ></LoginForm>
+            )}
           </Route>
 
           <Route exact path="/myProperty">
-            <UserProperty activeUser={localStorage.getItem('activeUser') }></UserProperty>
+            {/* <UserProperty activeUser={localStorage.getItem('activeUser') }></UserProperty> */}
+            <UserProperty activeUser={activeUser}></UserProperty>
           </Route>
-          
         </Switch>
       </ContentWrapper>
     </>
