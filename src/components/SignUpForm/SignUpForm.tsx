@@ -41,7 +41,7 @@ let uniqueId: Number;
 export const SignUpForm: FunctionComponent<signUpForm_proptype> = (props) => {
   const history = useHistory();
   const [formData, setFormData] = useState({});
-
+  let prevData = {}
   const setFormField = (event: any) => {
     event.preventDefault();
 
@@ -388,11 +388,11 @@ export const EditProfile: FunctionComponent<EditProfile_proptype> = (props) => {
         };
         console.log(newState);
         putRequest(
-          "http://localhost:8080/users/" + props.activeUser,
+          "http://localhost:8080/users/" + localStorage.getItem('activeUser'),
           newState
         ).then((res) => {
-          console.log(res);
-          window.location.reload();
+          // console.log(res);
+          alert("Updated Info");
         });
       }
     );

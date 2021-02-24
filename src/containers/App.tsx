@@ -90,7 +90,7 @@ function App() {
           <Route exact path="/profile">
             {/* <ProfilePage activeUser={localStorage.getItem('activeUser')} HeaderText="Edit Profile" comp={<EditProfile></EditProfile>}></ProfilePage> */}
             {
-              userIsLoggedIn ?
+              userIsLoggedIn === "true" ?
               <ProfilePage
                 activeUser={activeUser}
                 HeaderText="Edit Profile"
@@ -101,7 +101,7 @@ function App() {
           </Route>
 
           <Route exact path="/login">
-            {userIsLoggedIn ? (
+            {userIsLoggedIn === "true" ? (
               <Redirect to="/profile" />
             ) : (
               <LoginForm

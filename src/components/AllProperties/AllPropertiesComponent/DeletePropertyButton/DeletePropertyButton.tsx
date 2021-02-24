@@ -10,7 +10,7 @@ type ButtonProps={
 
 const DeletePropertyButton=(props:ButtonProps)=>{
     return (
-        <DeleteButton onClick={()=>{props.removePropertyHandler("dummy argument")}}>Edit</DeleteButton>
+        <DeleteButton onClick={()=>{props.removePropertyHandler("dummy argument")}}>Delete</DeleteButton>
     )
 }
 

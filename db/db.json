@@ -17,12 +17,12 @@
     },
     {
       "gender": "M",
-      "firstName": "Saurabh Kumar",
+      "firstName": "Saurabh",
       "lastName": "",
-      "email": "",
-      "dateOfBirth": "",
-      "mobile": "",
-      "password": "",
+      "email": "test@mail.com",
+      "dateOfBirth": "2021-02-04",
+      "mobile": "1234567890",
+      "password": "1234",
       "id": 2,
       "propertyAdded": [
         {
