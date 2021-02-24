@@ -58,8 +58,13 @@ export const UserProperty : FunctionComponent<userPropertyProps> = ({activeUser}
             for(var i=0;i<userPropertyArr.length;i++) userPropertyIndex.push(userPropertyArr[i].id);
             for(var i=0;i<userPropertyArr.length;i++){
                 const url = "http://localhost:8080/properties/"+  userPropertyIndex[i];
-                const result = await axios.get(url).then(async (response) => {
-                    userPropertyData.push(response.data);
+                const result = await axios.get(url).then((response) => {
+                    let flag = 0;
+                    for(let i=0; i<userPropertyData.length;i++){
+                        if(userPropertyData[i].id === response.data.id) flag=1;
+                    }
+
+                    if(flag === 0)userPropertyData.push(response.data);
                 });
             }
             //console.log(userPropertyData);
@@ -75,20 +80,7 @@ export const UserProperty : FunctionComponent<userPropertyProps> = ({activeUser}
 
 
     function removePropertyHandler(id: number) {
-        // AllPropertiesArray = AllPropertiesArray.filter(function (
-        //   property: PropertiesArgumentType
-        // ) {
-        //   return property.id !== id;
-        // });
-        // let action = "http://localhost:8080/properties";
-        // action = action + "/" + id;
-        // //console.log(action);
-        // axios.delete(action);
-        // if (DeletePropertyState === true) {
-        //   setDeletePropertyState(false);
-        // } else {
-        //   setDeletePropertyState(true);
-        // }
+        
       }
     
     return(
