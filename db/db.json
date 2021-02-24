@@ -46,16 +46,19 @@
       ]
     },
     {
-      "gender": "M",
-      "firstName": "lohitya",
-      "lastName": "amba",
-      "email": "jha.s#aurabh@gmail.com",
-      "dateOfBirth": "1566-12-13",
-      "mobile": "1234567890",
-      "pass": "1111",
-      "cpassword": "1111",
       "id": 3,
-      "propertyAdded": []
+      "firstName": "Lohitya",
+      "lastName": "Ambashta",
+      "email": "lkambashta@gmail.com",
+      "mobile": "9988998899",
+      "gender": "M",
+      "dateOfBirth": "2000-02-21",
+      "password": "qwerty123",
+      "propertyAdded": [
+        {
+          "id": 8
+        }
+      ]
     }
   ],
   "properties": [
@@ -127,6 +130,16 @@
       "typeOfProperty": "gel",
       "id": 7,
       "ownerOfProperty": "2",
+      "registrationDateOfProperty": "12-12-1990"
+    },
+    {
+      "nameOfProperty": "Blue Berry Hills",
+      "locationOfProperty": "Sukna, WB",
+      "descriptionOfProperty": "Resort with siwimming poopl",
+      "costOfProperty": "1000",
+      "typeOfProperty": "Resort",
+      "id": 8,
+      "ownerOfProperty": "3",
       "registrationDateOfProperty": "12-12-1990"
     }
   ]
