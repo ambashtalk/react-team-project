@@ -1,4 +1,5 @@
 import { Console } from "console";
+import { type } from "os";
 import React, {
   FunctionComponent,
   useState,
@@ -270,6 +271,92 @@ export const AddProperty: FunctionComponent<AddPropertyForm_proptype> = (
     </EditProfileContainer>
   );
 };
+
+
+
+
+type EditProperty_prop = {
+  activeUser: string | null;
+  id : number;
+}
+
+export const EditProperty: FunctionComponent<EditProperty_prop> = (
+  props
+) => {
+  const history = useHistory();
+  const [formData, setFormData] = useState({});
+
+  const setFormField = (event: any) => {
+    event.preventDefault();
+
+    let newState = {};
+    for (let i = 0; i < event.target.length - 1; i++) {
+      newState = {
+        ...newState,
+        [event.target[i].name]: event.target[i].value,
+      };
+    }
+    setFormData(newState);
+    postRequest("http://localhost:8080/properties/"+props.id, newState).then((res) => {
+      console.log(res);
+      history.push("/home");
+    });
+  };
+
+  return (
+    <EditProfileContainer onSubmit={setFormField}>
+      <FormInputField
+        className="TypeA"
+        type="text"
+        placeholder="Property Name"
+        label="Name of Property"
+        name="nameOfProperty"
+      ></FormInputField>
+      <FormInputField
+        className="TypeA"
+        type="text"
+        placeholder="Property Address"
+        label="Address of Property"
+        name="locationOfProperty"
+      ></FormInputField>
+
+      <FormInputField
+        className="TypeA"
+        type="text"
+        placeholder="Description"
+        label="Description"
+        name="descriptionOfProperty"
+      ></FormInputField>
+      <FormInputRow className="TypeB">
+        <FormInputField
+          className="TypeD"
+          type="number"
+          placeholder="Property Size(e.g. 2500 sq. ft)"
+          label="Size of Property"
+          name="costOfProperty"
+        ></FormInputField>
+        <FormInputField
+          className="TypeD"
+          type="text"
+          placeholder="Property Type"
+          label="Type of Property"
+          name="typeOfProperty"
+        ></FormInputField>
+      </FormInputRow>
+
+      <FormButton className="TypeE">Submit</FormButton>
+    </EditProfileContainer>
+  );
+};
+
+
+
+
+
+
+
+
+
 
 type EditProfile_proptype = {
   activeUser: string | null;

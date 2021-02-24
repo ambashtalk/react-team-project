@@ -25,3 +25,8 @@ export const getRequest = (url : string) =>{
         body : JSON.stringify(data)
     }).then(res=>res.json());
  }
+
+ export const deleteRequest = (url : string) => {
+    return fetch('https://jsonplaceholder.typicode.com/posts/1', { method: 'DELETE' });
+    
+ }

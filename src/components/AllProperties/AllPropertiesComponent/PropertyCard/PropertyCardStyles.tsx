@@ -40,16 +40,14 @@ min-width:250px;
 margin:2%;
 `
 export const PropertyImageStyes=styled.img`
-width:"90%"
+width:100%;
+border-radius : 10px
 
 `
 
 export const ImageWithDetailsStyles=styled.div`
 display:flex;
-flex-direction:row;
-
-
-
+flex-direction:column;
 padding:6%;
 
 `
@@ -65,3 +63,9 @@ min-width:300px;
   }
 
 `
+
+export const ButtonDiv = styled.div`
+display : flex;
+flex-direction : row;
+justify-content : space-around;
+`;
