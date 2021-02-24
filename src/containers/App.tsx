@@ -7,6 +7,7 @@ import AllProperties from "../components/AllProperties/AllProperties";
 import { FloatButtonArea } from "../components/SignUpForm/SignUpFormComponents";
 
 import {Signup} from '../components/SignUpForm/SignUpForm';
+import ProfilePage from '../components/ProfilePage/ProfilePage';
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -29,7 +30,9 @@ function App() {
       <ContentWrapper>
         
         <AllProperties activeUser={"2"}></AllProperties>
-        <FloatButtonArea />
+        <FloatButtonArea /> 
+       
+        
         
         
       </ContentWrapper>
