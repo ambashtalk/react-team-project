@@ -64,7 +64,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   const modal = (
     <React.Fragment>
       <Backdrop onClick={hide} />
-      <FocusLock>
+      
         <Wrapper
           aria-modal
           aria-labelledby={headerText}
@@ -79,7 +79,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
             <Content>{modalContent}</Content>
           </StyledModal>
         </Wrapper>
-      </FocusLock>
+      
     </React.Fragment>
   );
 

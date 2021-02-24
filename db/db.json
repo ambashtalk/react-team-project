@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "firstName": "Saurabh Kumar",
       "lastName": "Jha",
       "email": "jhasaurabh.312@gmail.com",
@@ -11,72 +11,123 @@
       "password": "Saurabh@123",
       "propertyAdded": [
         {
-          "id": "p1"
-        },
-        {
-          "id": "p2"
+          "id": 1
         }
       ]
     },
     {
-      "id": "2",
-      "firstName": "EnigmaX",
-      "lastName": "Mamba",
-      "email": "fbcedsbf.35@gmail.com",
-      "mobile": "7477347438",
       "gender": "M",
-      "dateOfBirth": "1998-12-13",
-      "password": "dshgvcs@123",
+      "firstName": "Saurabh Kumar",
+      "lastName": "",
+      "email": "",
+      "dateOfBirth": "",
+      "mobile": "",
+      "password": "",
+      "id": 2,
       "propertyAdded": [
         {
-          "propertyId": "p3"
+          "id": 2
         },
         {
-          "propertyId": "p4"
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        },
+        {
+          "id": 6
+        },
+        {
+          "id": 7
         }
       ]
+    },
+    {
+      "gender": "M",
+      "firstName": "lohitya",
+      "lastName": "amba",
+      "email": "jha.s#aurabh@gmail.com",
+      "dateOfBirth": "1566-12-13",
+      "mobile": "1234567890",
+      "pass": "1111",
+      "cpassword": "1111",
+      "id": 3,
+      "propertyAdded": []
     }
   ],
   "properties": [
     {
-      "id": "p4",
+      "id": 1,
       "nameOfProperty": "Hotel Meera MOtel",
       "locationOfProperty": "Bangalore",
       "costOfProperty": "16,000",
       "typeOfProperty": "Hotel",
       "descriptionOfProperty": "Nice Resdenttial Place",
-      "ownerOfProperty": "3",
+      "ownerOfProperty": 1,
       "registrationDateOfProperty": "2021-01-05"
     },
     {
-      "id": "p5",
-      "nameOfProperty": "Hotel haha MOtel",
-      "locationOfProperty": "ludhiana",
-      "costOfProperty": "14,000",
-      "typeOfProperty": "Hotel",
-      "descriptionOfProperty": "Nice Resdenttial Place",
-      "ownerOfProperty": "5",
-      "registrationDateOfProperty": "2021-01-05"
+      "nameOfProperty": "Santiago Bernabeu",
+      "locationOfProperty": "Real Madrid, Spain",
+      "descriptionOfProperty": "Football Stadium",
+      "costOfProperty": "10000",
+      "typeOfProperty": "Park",
+      "id": 2,
+      "ownerOfProperty": "2",
+      "registrationDateOfProperty": "12-12-1990"
     },
     {
-      "id": "p6",
-      "nameOfProperty": "Hotel dophin MOtel",
-      "locationOfProperty": "ludhiana",
-      "costOfProperty": "14,000",
-      "typeOfProperty": "Hotel",
-      "descriptionOfProperty": "Nice Resdenttial Place",
-      "ownerOfProperty": "6",
-      "registrationDateOfProperty": "2021-01-05"
+      "nameOfProperty": "",
+      "locationOfProperty": "",
+      "descriptionOfProperty": "",
+      "costOfProperty": "",
+      "typeOfProperty": "",
+      "id": 3,
+      "ownerOfProperty": "2",
+      "registrationDateOfProperty": "12-12-1990"
     },
     {
-      "id": "p7",
-      "nameOfProperty": "Hotel ontario MOtel",
-      "locationOfProperty": "ludhiana",
-      "costOfProperty": "14,000",
-      "typeOfProperty": "Hotel",
-      "descriptionOfProperty": "Nice Resdenttial Place",
-      "ownerOfProperty": "7",
-      "registrationDateOfProperty": "2021-01-05"
+      "nameOfProperty": "",
+      "locationOfProperty": "",
+      "descriptionOfProperty": "",
+      "costOfProperty": "",
+      "typeOfProperty": "",
+      "id": 4,
+      "ownerOfProperty": "2",
+      "registrationDateOfProperty": "12-12-1990"
+    },
+    {
+      "nameOfProperty": "",
+      "locationOfProperty": "",
+      "descriptionOfProperty": "zdfgchvjbk",
+      "costOfProperty": "",
+      "typeOfProperty": "",
+      "id": 5,
+      "ownerOfProperty": "2",
+      "registrationDateOfProperty": "12-12-1990"
+    },
+    {
+      "nameOfProperty": "",
+      "locationOfProperty": "rycuygiug",
+      "descriptionOfProperty": "",
+      "costOfProperty": "",
+      "typeOfProperty": "",
+      "id": 6,
+      "ownerOfProperty": "2",
+      "registrationDateOfProperty": "12-12-1990"
+    },
+    {
+      "nameOfProperty": "fvyiofhbdjip",
+      "locationOfProperty": "dbuviobhjgfnopbt",
+      "descriptionOfProperty": "idklnzbvf",
+      "costOfProperty": "1",
+      "typeOfProperty": "gel",
+      "id": 7,
+      "ownerOfProperty": "2",
+      "registrationDateOfProperty": "12-12-1990"
     }
   ]
 }

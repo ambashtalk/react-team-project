@@ -4,7 +4,7 @@ import axios from "axios";
 import { HomePageParentDiv } from "./AllPropertiesStyle";
 
 type AllPropertiesPropsType = {
-  activeUser: string;
+  activeUser: string|null;
 };
 
 type PropertiesArgumentType = {
@@ -12,7 +12,7 @@ type PropertiesArgumentType = {
   typeOfProperty: string;
   descriptionOfProperty: string;
   ownerOfProperty: string;
-  id: string;
+  id: number;
   nameOfProperty: string;
   locationOfProperty: string;
   costOfProperty: string;
@@ -21,7 +21,7 @@ type PropertiesArgumentType = {
 let AllPropertiesArray: PropertiesArgumentType[] = [];
 
 const AllProperties = (props: AllPropertiesPropsType) => {
-  let [DeletePropertyState, setDeletePropertyState] = useState(true);
+  let [DeletePropertyState, setDeletePropertyState] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -33,18 +33,21 @@ const AllProperties = (props: AllPropertiesPropsType) => {
 
       if (DeletePropertyState === true) {
         setDeletePropertyState(false);
-      } else {
+      } 
+      else {
         setDeletePropertyState(true);
       }
     };
     getData();
   }, []);
 
-  function removePropertyHandler(id: string) {
+  function removePropertyHandler(id: number) {
     AllPropertiesArray = AllPropertiesArray.filter(function (
       property: PropertiesArgumentType
     ) {
-      return property.id !== id;
+      console.log(property.id);
+      console.log(id);
+      return property.ownerOfProperty !== localStorage.getItem('activeUser');
     });
     let action = "http://localhost:8080/properties";
     action = action + "/" + id;
@@ -67,7 +70,7 @@ const AllProperties = (props: AllPropertiesPropsType) => {
             ownerOfProperty={property.ownerOfProperty}
             registrationDateOfProperty={property.registrationDateOfProperty}
             id={property.id}
-            activeUser={props.activeUser}
+            activeUser={props.activeUser ? props.activeUser : ""}
             key={property.id}
             nameOfProperty={property.nameOfProperty}
             locationOfProperty={property.locationOfProperty}

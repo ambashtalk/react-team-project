@@ -5,7 +5,10 @@ import TitleBar from "../components/TitleBar/TitleBar";
 import AllProperties from "../components/AllProperties/AllProperties";
 import { FloatButtonArea } from "../components/SignUpForm/SignUpFormComponents";
 import { Route, Switch, useHistory } from "react-router-dom";
-import { SignUpForm } from "../components/SignUpForm/SignUpForm";
+import { AddProperty, EditProfile, LoginForm, SignUpForm } from "../components/SignUpForm/SignUpForm";
+import { TabArea } from "../components/Profile/userProfile";
+import { ProfilePage } from "../components/Profile/profileCard";
+import {UserProperty} from "../components/Profile/PropertyCard";
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -24,15 +27,16 @@ html {
 function App() {
   //Check if user is currently online
   let [userIsLoggedIn, setUserIsLoggedIn] = useState(
-    window.localStorage.getItem("userIsLoggedIn")
+    localStorage.getItem("userIsLoggedIn")
   );
   const toogleUserIsLoggedIn = () => {
     setUserIsLoggedIn((prevState) => {
       if (prevState === "true") {
-        window.localStorage.setItem("userIsLoggedIn", "false");
+        localStorage.setItem("userIsLoggedIn", "false");
+        localStorage.clear();
         return "false";
       } else {
-        window.localStorage.setItem("userIsLoggedIn", "true");
+        localStorage.setItem("userIsLoggedIn", "true");
         return "true";
       }
     });
@@ -42,25 +46,31 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <TitleBar
-        userIsLoggedIn={userIsLoggedIn}
-        sessionManager={toogleUserIsLoggedIn}
-      />
+      <TitleBar userIsLoggedIn={userIsLoggedIn ? userIsLoggedIn : ""} sessionManager={toogleUserIsLoggedIn}/>
       <ContentWrapper>
         <Switch>
           <Route exact path="/">
-            <AllProperties activeUser={"2"}></AllProperties>
-            <FloatButtonArea />
+            <SignUpForm toogleUserIsLoggedIn={toogleUserIsLoggedIn}></SignUpForm>
           </Route>
-          <Route exact path="/auth">
-            <SignUpForm
-              toogleUserIsLoggedIn={toogleUserIsLoggedIn}
-            ></SignUpForm>
+          <Route exact path="/home">
+              <AllProperties activeUser={localStorage.getItem('activeUser')}></AllProperties>
+              <FloatButtonArea HeaderText="Add Property" comp={<AddProperty activeUser={localStorage.getItem('activeUser')}/>}/>
           </Route>
           {/* <Route exact path="/logout"></Route> */}
-          <Route exact path="/profile">
-            <FloatButtonArea />
+
+          <Route exact path="/profile">       
+          <ProfilePage activeUser={localStorage.getItem('activeUser')} HeaderText="Edit Profile" comp={<EditProfile></EditProfile>}></ProfilePage>
+            {/* <FloatButtonArea /> */}
           </Route>
+
+          <Route exact path="/login">
+            <LoginForm toogleUserIsLoggedIn={toogleUserIsLoggedIn}></LoginForm>
+          </Route>
+
+          <Route exact path="/myProperty">
+            <UserProperty activeUser={localStorage.getItem('activeUser') }></UserProperty>
+          </Route>
+          
         </Switch>
       </ContentWrapper>
     </>
