@@ -9,9 +9,18 @@ import {
   StyledFormInputField,
   Label,
   FloatButton,
+  StyledEditProfileFormContainer,
+  StyledLoginFormContainer,
+  StyledAddPropertyFormContainer,
 } from "./SignUpFormStyle";
+import { HeaderText } from "../PopUpModal/PopUpModalStyles";
 
-export const FloatButtonArea: FunctionComponent<{}> = () => {
+type FloatProps = {
+  HeaderText : string,
+  comp : JSX.Element,
+}
+
+export const FloatButtonArea: FunctionComponent<FloatProps> = ({HeaderText,comp}) => {
   const { isShown, toggle } = useModal();
 
   return (
@@ -20,8 +29,8 @@ export const FloatButtonArea: FunctionComponent<{}> = () => {
       <Modal
         isShown={isShown}
         hide={toggle}
-        headerText="Edit Profile"
-        modalContent={<ConfirmationModal message={<h1>Property Form</h1>} />}
+        headerText={HeaderText}
+        modalContent={<ConfirmationModal message={comp} />}
       />
     </>
   );
@@ -48,8 +57,32 @@ export const FormInputRow: FunctionComponent<FormInputRow_proptype> = (props) =>
 type SignUpFormContainer_proptype = {
   onSubmit: (event: FormEvent) => void;
 };
+
+type LoginFormContainer_proptype = {
+  onSubmit: (event: FormEvent) => void;
+};
+
+type EditProfileContainer_proptype = {
+  onSubmit: (event: FormEvent) => void;
+};
+type AddPropertyContainer_proptype = {
+  onSubmit: (event: FormEvent) => void;
+};
+
 export const SignUpFormContainer: FunctionComponent<SignUpFormContainer_proptype> = (props) => {
   return <StyledSignUpFormContainer onSubmit={props.onSubmit}>{props.children}</StyledSignUpFormContainer>;
+};
+
+export const LoginFormContainer: FunctionComponent<LoginFormContainer_proptype> = (props) => {
+  return <StyledLoginFormContainer onSubmit={props.onSubmit}>{props.children}</StyledLoginFormContainer>;
+};
+
+export const EditProfileContainer: FunctionComponent<EditProfileContainer_proptype> = (props) => {
+  return <StyledEditProfileFormContainer onSubmit={props.onSubmit}>{props.children}</StyledEditProfileFormContainer>;
+};
+
+export const AddPropertyContainer: FunctionComponent<AddPropertyContainer_proptype> = (props) => {
+  return <StyledAddPropertyFormContainer onSubmit={props.onSubmit}>{props.children}</StyledAddPropertyFormContainer>;
 };
 
 type FormInputField_proptype = {

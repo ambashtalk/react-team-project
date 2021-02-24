@@ -69,6 +69,18 @@ export const StyledUserOptionAndLink = styled(Link)`
   text-decoration: none;
 `;
 
+export const StyledUserOptionAndLinkForm = styled(Link)`
+  color: black;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  flex: 1;
+  text-align: center;
+  margin: auto 0;
+  padding: 1rem;
+  text-decoration: none;  
+`;
+
+
 export const StyledLogoutOption = styled(StyledUserOptionAndLink)`
   &:hover {
     color: white;
@@ -122,7 +134,7 @@ export const StyledOptionBox = styled(StyledUserBox)`
 `;
 
 type StyledLogoutOptionBox_proptype = {
-  userIsLoggedIn: string | null;
+  userIsLoggedIn: string;
 };
 export const StyledLogoutOptionBox = styled(StyledUserBox)`
   background-color: ${(props: StyledLogoutOptionBox_proptype) =>

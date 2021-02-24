@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 80%;
-  @media (min-width: 768px) {
-    width: 60%;
+  @media (max-width: 768px) {
+    width: 80%;
   }
-  @media (min-width: 1024px) {
-    width: 40%;
+  @media (max-width: 1024px) {
+    width: 80%;
   }
   position: fixed;
   top: 50%;

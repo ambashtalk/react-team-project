@@ -10,11 +10,11 @@ import {
 } from "./PropertyCardStyles";
 
 type CardProps = {
-  id: string;
+  id: number;
   nameOfProperty: string;
   locationOfProperty: string;
   costOfProperty: string;
-  activeUser: string;
+  activeUser: string|null;
 
   typeOfProperty: string;
   descriptionOfProperty: string;

@@ -45,12 +45,50 @@ export const ButtonField = styled.button`
 `;
 
 export const StyledSignUpFormContainer = styled.form`
-  margin: auto;
+  margin: 0 auto;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  max-width: 60%;
+  width: 80%;
+
+  @media screen and (min-width : 700px){
+    width : 60%
+  }
+`;
+
+export const StyledLoginFormContainer = styled.form`
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+`;
+export const StyledEditProfileFormContainer = styled.form`
+  margin: 0 auto ;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width : 80%;
+
+  // @media screen and (max-width : 700px){
+  //   width : 80%
+  // }
+`;
+
+export const StyledAddPropertyFormContainer = styled.form`
+  margin: 0 auto ;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width : 80%;
+
+  // @media screen and (max-width : 700px){
+  //   width : 80%
+  // }
 `;
 
 export const StyledFormInputRow = styled.div`
@@ -64,11 +102,11 @@ export const StyledFormInputRow = styled.div`
       : " "};
   ${(props) =>
     props.className === "TypeB"
-      ? "{display: flex;flex-direction: row;justify-content: space-between; @media screen and (max-width : 576px){display: flex;flex-direction: column;justify-content: center;}}"
+      ? "{display: flex;flex-direction: row;justify-content: space-between; @media screen and (max-width : 700px){display: flex;flex-direction: column;justify-content: center;}}"
       : ""};
   ${(props) =>
     props.className === "TypeC"
-      ? "{background-color: #f7f7f7;padding: 12px;box-sizing: border-box;width: 50%;@media screen and (max-width : 576px){width:100%}"
+      ? "{background-color: #f7f7f7;padding: 12px;box-sizing: border-box;width: 50%;@media screen and (max-width : 700px){width:100%}"
       : ""};
   ${(props) =>
     props.className === "TypeD"

@@ -15,7 +15,7 @@ import {
   StyledOptionsContainer,
 } from "./TitleBarStyles";
 type proptype = {
-  userIsLoggedIn: string | null;
+  userIsLoggedIn: string;
   username?: string;
   sessionManager: () => void;
 };
@@ -34,7 +34,7 @@ const TitleBar: React.FC<proptype> = (props) => {
           <StyledUserImage src={defaultUserImage} alt="user_image" />
           <StyledUserName>
             Welcome!{" "}
-            {props.userIsLoggedIn === "true" ? props.username : "Guest"}
+            {props.userIsLoggedIn === "true" ? "Member" : "Guest"}
           </StyledUserName>
         </UserBox>
 
@@ -45,14 +45,14 @@ const TitleBar: React.FC<proptype> = (props) => {
             </StyledUserOptionAndLink>
           </StyledOptionBox>
           <StyledOptionBox>
-            <StyledUserOptionAndLink to="/">Home</StyledUserOptionAndLink>
+            <StyledUserOptionAndLink to="/home">Home</StyledUserOptionAndLink>
           </StyledOptionBox>
           <StyledLogoutOptionBox userIsLoggedIn={props.userIsLoggedIn}>
             <StyledLogoutOption
               onClick={() =>
                 HandelLoginLogout(props.userIsLoggedIn, props.sessionManager)
               }
-              to={props.userIsLoggedIn === "true" ? "/" : "/auth"}
+              to={props.userIsLoggedIn === "true" ? "/login" : "/login"}
             >
               {props.userIsLoggedIn === "true" ? "Logout" : "Login"}
             </StyledLogoutOption>
